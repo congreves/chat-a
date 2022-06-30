@@ -1,0 +1,17 @@
+{"message":"g","username":"","room_name":"","avatar":"","time":"30 Jun 2022, 12:05"}
+{"message":"l","username":"","room_name":"","avatar":"","time":"30 Jun 2022, 12:05"}
+{"message":"Hej!","username":"Vera","room_name":"","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:32"}
+{"message":"a","username":"Vera","room_name":"a","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:36"}
+{"message":"a","username":"Vera","room_name":"w","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:39"}
+{"message":"a","username":"Vera","room_name":"w","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:39"}
+{"message":"a","username":"Vera","room_name":"w","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:41"}
+{"message":"Heeej","username":"Vera","room_name":"w","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:41"}
+{"message":"s","username":"Vera","room_name":"w","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:42"}
+{"message":"abbas","username":"Vera","room_name":"w","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:42"}
+{"message":"Hejhej","username":"Vera","room_name":"w","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:43"}
+{"message":"skolan är snart slut","username":"Vera","user_id":"m2fcMPXl8aN0zLXrAAE2","room_name":"w","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:45"}
+{"message":"a","username":"Vera","user_id":"m2fcMPXl8aN0zLXrAAE2","room_name":"w","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:47"}
+{"message":"ss","username":"Vera","user_id":"m2fcMPXl8aN0zLXrAAE2","room_name":"Bobos","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:49"}
+{"message":"a","username":"Vera","user_id":"m2fcMPXl8aN0zLXrAAE2","room_name":"Bobos","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:49"}
+{"message":"aa","username":"Vera","user_id":"m2fcMPXl8aN0zLXrAAE2","room_name":"Bobos","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:49"}
+{"message":"kk","username":"Vera","user_id":"m2fcMPXl8aN0zLXrAAE2","room_name":"Bobos","avatar":"https://bit.ly/sage-adebayo","time":"30 Jun 2022, 12:51"}
