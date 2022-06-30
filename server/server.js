@@ -19,7 +19,7 @@ io.use((socket, next) => {
     const timeStamp = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
     const newMsg = {
       message: data.message,
-     username: data.username,
+      username: data.username,
       user_id: data.user_id,
       room_name: data.room,
       avatar: data.avatar,
@@ -30,7 +30,8 @@ io.use((socket, next) => {
   next();
 });
 
-// SEND MESSAGES
+// Connection
+
 io.on("connection", async (socket) => {
   const users = await userModel.getAll();
   const rooms = await roomModel.getAll();
@@ -41,22 +42,19 @@ io.on("connection", async (socket) => {
     io.emit("errorMessage", errorMessage);
   });
 
-/*io.on("connection", () => {
-  socket.on("message", (msg) => {
-    io.emit("message", msg);
-    console.log(msg);
-  });*/
 
-  // PRIVATE MESSAGES
+  // SEEND MESSAGES
   socket.on("chatMessage", async (data) => {
-    socket.broadcast.emit("isTyping", "");
-console.log(data);
+    if (!data.message.length) {
+      return console.log("Empty message");
+    }
+    console.log(data);
 
     const timeStamp = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
 
     const newMsg = {
       message: data.message,
-     username: data.username,
+      username: data.username,
       user_id: data.user_id,
       room_name: data.room,
       avatar: data.avatar,
@@ -66,17 +64,17 @@ console.log(data);
     socket.emit("logMessages", newMsg);
 
     const roomMessages = await messageModel.getRoomMessages(data.room);
-    //io.to(data.room).emit("sentMessage", roomMessages);
+    console.log(roomMessages)
+   // io.to(data.room).emit("sentMessage", roomMessages);
     io.emit("sentMessage", roomMessages);
-  }); 
-  
+  });
 
-  // CREATE USER & JOIN ROOM
+  // CREATE USER
   socket.on("create", async (username) => {
-    //Skicka username from handleUser (som foer username fron inputfield)
+
     await userModel.createOne(socket.id, username);
     socket.emit("created", { id: socket.id, username });
-    //Skicka alla användare (använd en getAllusers i model) socket.emit
+
 
     const result = await userModel.getAll();
     socket.emit("allUsers", result);
@@ -87,11 +85,39 @@ console.log(data);
   socket.on("createRoom", async (room_name) => {
     await roomModel.createOne(room_name);
     socket.emit("roomCreated", { room_name });
+
     // GET ALL ROOMS
     const result = await roomModel.getAll();
     socket.emit("allRooms", result);
     console.log(result);
+
+    socket.join(room_name);
+    const roomMessages = await messageModel.getRoomMessages(room_name);
+    io.to(room_name).emit("sentMessage", roomMessages);
+    console.log(socket.rooms);
+
+  
   });
+   //JOIN ROOM
+
+  socket.on("joinRoom", async (room_name) => {
+
+    // GET ALL ROOMS
+    const result = await roomModel.getAll();
+    socket.emit("allRooms", result);
+    console.log(result);
+
+    socket.join(room_name);
+    const roomMessages = await messageModel.getRoomMessages(room_name);
+    io.to(room_name).emit("sentMessage", roomMessages);
+    console.log(socket.rooms);
+
+  
+  });
+  
+
+
+
   // DELETE ONE ROOM
   socket.on("deleteRoom", async (room_name) => {
     await roomModel.deleteOne(room_name);
@@ -102,5 +128,3 @@ console.log(data);
     io.emit("deleteRoom", updatedRooms);
   });
 });
-
-

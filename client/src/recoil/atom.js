@@ -21,7 +21,7 @@ export const userState = atom({
 export const idState = atom({
     key: "id",
     default: "",
-    effects_UNSTABLE: [localStorageEffect("id")],
+
   });
   
 export const roomState = atom({

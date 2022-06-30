@@ -80,6 +80,12 @@ function SideMenu() {
     console.log(room);
   };
 
+  const handleJoin = (room_name) => {
+    socket.emit("joinRoom", room_name);
+    setRoom(room_name);
+    console.log(room);
+  };
+
   useEffect(() => {
     setOverlay(<OverlayOne />);
     onOpen(overlay);
@@ -217,7 +223,10 @@ console.log(userId);
                 />
               </AvatarGroup>
               <Button ml="4">{room.room_name}</Button>
-              <IconButton aria-label="Add new chat rooms" icon={<AddIcon />} />
+              <IconButton aria-label="Add to chat rooms" icon={<AddIcon />} onClick={() => {
+                handleJoin(room.room_name);
+            
+              }} />
               <IconButton
                 aria-label="Delete chat rooms"
                 icon={<DeleteIcon />}
